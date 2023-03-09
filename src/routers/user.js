@@ -50,34 +50,6 @@ router.get('/users/me', auth, async(req, res) => {
 })
 
 
-// //update user profile
-// router.put('/users/me', async(req, res) => {
-//     const allowedUpdates = ['name','password','email','age'];
-//     const updates = Object.keys(req.body);
-//     const isValidUpdate = updates.every((update) => allowedUpdates.includes(update))
-
-//     if(!isValidUpdate){
-//         return res.status(400).send({error : "Invalid Update"})
-//     }
-
-//     const _id = req.params.id;
-//     try{
-//         const user = await User.findById(_id);
-//         updates.forEach((update) => user[update] = req.body[update]);
-//         await user.save();
-
-//         // //this will bypasses pre hook, because we defined it on save
-//         // const user = await User.findByIdAndUpdate(_id, req.body, {new : true, runValidators : true});
-//         if(!user){
-//             return res.status(404).send()
-//         }
-//         res.send(user)
-//     }
-//     catch(e){
-//         res.status(400).send(e)
-//     }
-// })
-
 
 //update user profile
 router.put('/users/me', auth, async(req, res) => {
