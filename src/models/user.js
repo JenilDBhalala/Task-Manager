@@ -47,7 +47,12 @@ const userSchema = mongoose.Schema({
             type: String,
             required: true
         }
-    }]
+    }],
+    avatar: {
+        type: Buffer
+    }
+},{
+    timestamps : true
 })
 
 //hiding private data
@@ -60,6 +65,7 @@ userSchema.methods.toJSON = function(){
 
     delete userObject.tokens;
     delete userObject.password;
+    delete userObject.avatar;
 
     return userObject;
 }

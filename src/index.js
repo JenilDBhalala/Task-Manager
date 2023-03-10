@@ -1,14 +1,12 @@
 const express = require('express')
-const bodyParser = require('body-parser')
 require('./db/mongoose')
 
 //importing routes
 const userRoutes = require('./routers/user');
-const taskRoutes = require('./routers/task')
+const taskRoutes = require('./routers/task');
 
 const app = express()
 const port = process.env.PORT || 3000
-
 app.use(express.json())
 
 app.use(userRoutes);
